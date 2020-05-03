@@ -1,3 +1,5 @@
+const Comparator = require('../util/comparator')
+
 class QueueElement {
   constructor (element, priority) {
     this.element = element
@@ -56,6 +58,21 @@ class PriorityQueue {
 
   get isEmpty () {
     return this.items.length === 0
+  }
+
+  findByValue (item) {
+    return this.find(item, new Comparator(this.compareValue))
+  }
+
+  hasValue (value) {
+    return this.findByValue(value).length > 0
+  }
+
+  compareValue (a, b) {
+    if (a === b) {
+      return 0
+    }
+    return a < b ? -1 : 1
   }
 
   printPQueue () {
