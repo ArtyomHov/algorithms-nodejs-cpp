@@ -26,6 +26,11 @@ class Tree {
   }
 }
 
+module.exports = {
+  Node,
+  Tree
+}
+
 const t = new Node(10)
 t.left = new Node(8)
 t.left.left = new Node(7)
