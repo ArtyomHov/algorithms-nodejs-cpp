@@ -51,6 +51,11 @@ class Graph {
     this.AdjList.get(w).push(v)
   }
 
+  findEdge (v, neighbor) {
+    const vertex = this.AdjList.get(v)
+    return vertex.find(el => el.node === neighbor)
+  }
+
   addDirectedWeightedEdge (v, w, weight) {
     this.AdjList.get(v).push({ node: w, weight })
   }
